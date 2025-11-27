@@ -4,10 +4,6 @@ from config import Config
 from tools import convert_to_celsius, ms_to_kmh
 
 
-QUERY = "Lisbon"
-API_KEY = "83f3e7f09343d10fd03ffc1f9d7c5b51"
-
-
 def fetch_weather():
     try:
         url = f"https://api.openweathermap.org/data/2.5/weather?q={Config.QUERY}&appid={Config.API_KEY}"
@@ -15,7 +11,7 @@ def fetch_weather():
         data = res.json()
 
         weather = {
-            "temp": convert_to_celsius(data["main"]["temp"])+,
+            "temp": convert_to_celsius(data["main"]["temp"]),
             "temp_feels_like": convert_to_celsius(data["main"]["feels_like"]),
             "pressure": data["main"]["pressure"],
             "humidity": data["main"]["humidity"],
